@@ -1,0 +1,14 @@
+on:
+  release:
+    types: [created]
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install build && python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1

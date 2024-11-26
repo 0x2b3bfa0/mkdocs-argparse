@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mkdocs_argparse"
+version = "0.0.1"
+description = "An MkDocs extension to generate documentation for argparse command-line applications"
+readme = "README.md"
+keywords = ["argparse", "mkdocs"]
+license = {text = "Apache-2.0"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Helio Machado", email = "0x2b3bfa0@googlemail.com"}
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "markdown>=3,<4",
+    "mistune>=3,<4",
+]
+
+[tool.setuptools.packages.find]
+include = ["mkdocs_argparse"]
+
+[project.entry-points."markdown.extensions"]
+"mkdocs-argparse" = "mkdocs_argparse:MKArgparseExtension"
